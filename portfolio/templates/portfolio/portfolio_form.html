@@ -1,0 +1,82 @@
+{% extends "portfolio/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+<form action="{% url 'portfolioform' %}" method="POST" enctype="multipart/form-data" id="form-id" class="bg-light text-dark container-sm">
+    {% csrf_token %}
+    <fieldset>       
+        <legend class="text-center form-legend">Create your <span id="portfolio">portfolio</span></legend>
+        {{person_form.as_p}}
+        {{occupation_form.as_p}}
+        
+        <div class="row mb-3">
+            {{skillset.management_form }}
+            {{skillset.non_form_errors}}
+            <div id="skill_set" class="col-10">
+            {% for skill in skillset %}
+                {{skill.as_p}}
+            {% endfor %}
+            </div>
+            <div class="col-2 pl-3 mt-3 pt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+            width="25" height="25"
+            viewBox="0 0 172 172"
+            style=" fill:#000000;" id="addskill"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M2.65391,86c0,-46.02344 37.32266,-83.34609 83.34609,-83.34609c46.02344,0 83.34609,37.32266 83.34609,83.34609c0,46.02344 -37.32266,83.34609 -83.34609,83.34609c-46.02344,0 -83.34609,-37.32266 -83.34609,-83.34609z" fill="#e52348"></path><path d="M131.51953,72.05859h-31.74609v-31.54453c0,-1.34375 -1.075,-2.41875 -2.41875,-2.41875h-22.87734c-1.34375,0 -2.41875,1.075 -2.41875,2.41875v31.54453h-31.54453c-1.34375,0 -2.41875,1.075 -2.41875,2.41875v23.24687c0,1.34375 1.075,2.41875 2.41875,2.41875h31.54453v31.37656c0,1.34375 1.075,2.41875 2.41875,2.41875h22.87734c1.34375,0 2.41875,-1.075 2.41875,-2.41875v-31.37656h31.74609c1.34375,0 2.41875,-1.075 2.41875,-2.41875v-23.24687c0,-1.34375 -1.10859,-2.41875 -2.41875,-2.41875z" fill="#ffffff"></path></g></g></svg>
+            </div>
+            <small style="display:none" id="alert-skill" class="alert alert-success">A skill has been added!</small>
+        </div>
+        <fieldset class='pt-2'>
+        <div class="row">
+                {{workexpset.management_form }}
+                {{workexpset.non_form_errors}}
+                <div id="workexp_set" class="col-10">
+                <legend><strong>Work Experiences</strong></legend>
+                {% for workexp in workexpset %}
+                    {{workexp.as_p}}
+                {% endfor %}
+                </div>
+            <div class="col-2 pt-5 mt-5 pl-3">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="25" height="25"
+                viewBox="0 0 172 172"
+                style=" fill:#000000;" id="addworkexp"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M2.65391,86c0,-46.02344 37.32266,-83.34609 83.34609,-83.34609c46.02344,0 83.34609,37.32266 83.34609,83.34609c0,46.02344 -37.32266,83.34609 -83.34609,83.34609c-46.02344,0 -83.34609,-37.32266 -83.34609,-83.34609z" fill="#e52348"></path><path d="M131.51953,72.05859h-31.74609v-31.54453c0,-1.34375 -1.075,-2.41875 -2.41875,-2.41875h-22.87734c-1.34375,0 -2.41875,1.075 -2.41875,2.41875v31.54453h-31.54453c-1.34375,0 -2.41875,1.075 -2.41875,2.41875v23.24687c0,1.34375 1.075,2.41875 2.41875,2.41875h31.54453v31.37656c0,1.34375 1.075,2.41875 2.41875,2.41875h22.87734c1.34375,0 2.41875,-1.075 2.41875,-2.41875v-31.37656h31.74609c1.34375,0 2.41875,-1.075 2.41875,-2.41875v-23.24687c0,-1.34375 -1.10859,-2.41875 -2.41875,-2.41875z" fill="#ffffff"></path></g></g></svg>
+            </div>
+            <small style="display:none" id="alert-workexp" class="alert alert-success">Some work experience has been added!</small>
+        </div>
+       
+    </fieldset>
+        
+        <fieldset>
+            <legend><strong>Academic Experiences</strong></legend>
+            <div class="row mb-3">
+                {{acadexpset.management_form }}
+                {{acadexpset.non_form_errors}}
+                <div id="acadexp_set" class="col-10">
+                {% for acadexp in acadexpset %}
+                    {{acadexp.as_p}}
+                {% endfor %}
+                </div>
+        <div class="col-2 pl-3 pt-3 mt-4">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+            width="25" height="25"
+            viewBox="0 0 172 172"
+            style=" fill:#000000;" id="addacadexp"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M2.65391,86c0,-46.02344 37.32266,-83.34609 83.34609,-83.34609c46.02344,0 83.34609,37.32266 83.34609,83.34609c0,46.02344 -37.32266,83.34609 -83.34609,83.34609c-46.02344,0 -83.34609,-37.32266 -83.34609,-83.34609z" fill="#e52348"></path><path d="M131.51953,72.05859h-31.74609v-31.54453c0,-1.34375 -1.075,-2.41875 -2.41875,-2.41875h-22.87734c-1.34375,0 -2.41875,1.075 -2.41875,2.41875v31.54453h-31.54453c-1.34375,0 -2.41875,1.075 -2.41875,2.41875v23.24687c0,1.34375 1.075,2.41875 2.41875,2.41875h31.54453v31.37656c0,1.34375 1.075,2.41875 2.41875,2.41875h22.87734c1.34375,0 2.41875,-1.075 2.41875,-2.41875v-31.37656h31.74609c1.34375,0 2.41875,-1.075 2.41875,-2.41875v-23.24687c0,-1.34375 -1.10859,-2.41875 -2.41875,-2.41875z" fill="#ffffff"></path></g></g></svg>
+        </div>
+        <small style="display:none" id="alert-acadexp" class="alert alert-success">Some academic experience has been added!</small>
+        </div>
+            
+        </fieldset>
+        {{contact_form.as_p}}
+    <button class="m-4 float-right btn btn-primary" >Done</button>
+    </fieldset>
+</form>
+
+<div id="empty_skill_form" style="display:none">
+    {{ skillset.empty_form }}  
+</div>
+<div id="empty_workexp_form" style="display:none">
+    {{ workexpset.empty_form }}
+</div>
+<div id="empty_acadexp_form" style="display:none">
+    {{ acadexpset.empty_form }}
+</div>
+{% endblock content%}

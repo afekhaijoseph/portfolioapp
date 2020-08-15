@@ -1,0 +1,80 @@
+{% extends "portfolio/base.html" %}
+{% block content %}
+    <div class="portfoliopage container cover text-dark">
+        <h2 class="text-center form-legend" >My <span id="portfolio">portfolio</span></h2>
+        <div>
+            <div class="center">
+                <img class="curve mt-3 mb-3" src="{{user.person.display_picture.url}}" alt="display picture">
+            </div>
+           
+            <div class="center">
+                <h2 class="name font-weight-bold">{{user.person.first_name}} {{user.person.last_name}}</h2>
+            </div>
+    
+            <div class="pb-4 text-center">
+                <p>{{user.occupation.occupation}}</p>
+            </div>
+           
+            <div class="section mb-2">
+                <h5 class="pl-3 font-weight-bold">List of skills</h5>
+                <ul>
+                    {% for skill in user.skills_set.all %}
+            
+                    <li class="pt-2 pb-2 pr-1">{{skill.skills}}</li>
+            
+                    {%endfor%}
+                </ul>
+            </div>
+            
+            <div class="section mb-2 pt-3">
+                <h5 class="pl-3 font-weight-bold">List of work experiences</h5>
+                <ul>
+                {% for workexp in user.workexp_set.all %}
+                
+                    <li class="pt-2 pb-2 pr-1">Worked at {{workexp.company}} {{workexp.started}} - {{workexp.left}} as a {{workexp.position}}</li>
+        
+                 {%endfor%}
+                </ul>
+            </div>
+            
+            <div class="section mb-2 pt-3">
+                <h5 class="pl-3 font-weight-bold">List of academic experiences</h5>
+                <ul>
+                   {%for acadexp in user.acadexp_set.all%}
+              
+                   <li class="pt-1 pb-1">{{acadexp.education}}</li>
+                  
+                   {%endfor%}
+                </ul>
+            </div>        
+    
+            <div>
+                <h3 class="pl-2 font-weight-bold text-center"><span id="portfolio">Contact</span> me</h3>
+                <div>
+                    <img class="icon" src="https://img.icons8.com/cute-clipart/64/000000/phone.png"/>
+                    <p class="contact">{{user.contact.cell}}</p>
+                </div>
+                <div>
+                    <img class="icon border-border danger" src="https://img.icons8.com/fluent/48/000000/twitter.png"/>
+                    <p class="contact">{{user.contact.twitter}}</p>
+                </div>
+                <div>
+                    <img class="icon" src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>
+                    <p class="contact">{{user.contact.instagram}}</p>
+                </div>
+                <div>
+                    <img class="icon" src="https://img.icons8.com/cute-clipart/64/000000/linkedin.png"/>
+                    <p class="contact">{{user.contact.linkedin}}</p>
+                </div>
+    
+            </div>
+            {% if user.is_authenticated %}
+                <div class="mt-4"id="update">
+                    <button class="btn btn-secondary mr-2 py-1 mb-4"> <a class="text-light"  href="{% url 'portfolioupdateform' %}">Edit</a></button>
+                    <button class="btn btn-secondary py-1 mb-4"> <a class="text-light"  href="{% url 'logout' %}">Log out</a></button>
+                </div>
+                {% endif %}
+            
+        </div>
+    </div>
+{% endblock content %}

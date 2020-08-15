@@ -1,0 +1,89 @@
+{% extends "portfolio/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+<form action="{% url 'portfolioupdateform' %}" method="POST" enctype="multipart/form-data" class="container-xl border bg-light text-dark">
+    {% csrf_token %}
+    <fieldset>
+        <legend class="text-center form-legend">Update your <span id="portfolio">portfolio</span></legend>
+        {{person_form|crispy}}
+        {{occupation_form|crispy}}
+        <fieldset class="mb-4 pb-4 mt-4 pt-4">
+            {{skillset.management_form }}
+            <div id="update-skill_set">
+                {% for skill in skillset %}
+                <div class="box m-2 p-2">
+                    {{skill|crispy}}
+                </div>
+                
+                {% endfor %}
+            </div>
+            <div class="float-right">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="25" height="25"
+                viewBox="0 0 172 172"
+                style=" fill:#000000;" class="plus" id="update-skill"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M2.65391,86c0,-46.02344 37.32266,-83.34609 83.34609,-83.34609c46.02344,0 83.34609,37.32266 83.34609,83.34609c0,46.02344 -37.32266,83.34609 -83.34609,83.34609c-46.02344,0 -83.34609,-37.32266 -83.34609,-83.34609z" fill="#e52348"></path><path d="M131.51953,72.05859h-31.74609v-31.54453c0,-1.34375 -1.075,-2.41875 -2.41875,-2.41875h-22.87734c-1.34375,0 -2.41875,1.075 -2.41875,2.41875v31.54453h-31.54453c-1.34375,0 -2.41875,1.075 -2.41875,2.41875v23.24687c0,1.34375 1.075,2.41875 2.41875,2.41875h31.54453v31.37656c0,1.34375 1.075,2.41875 2.41875,2.41875h22.87734c1.34375,0 2.41875,-1.075 2.41875,-2.41875v-31.37656h31.74609c1.34375,0 2.41875,-1.075 2.41875,-2.41875v-23.24687c0,-1.34375 -1.10859,-2.41875 -2.41875,-2.41875z" fill="#ffffff"></path></g></g></svg>
+            </div>
+        </fieldset>
+        
+        <fieldset class="mb-4 pb-4">
+            <legend>Work Experiences</legend>
+            {{workexpset.management_form }}
+            <div id="update-workexp_set">
+                {% for workexp in workexpset %}
+                <div class="box m-2 p-2">
+                    {{workexp|crispy}}
+                </div>
+    
+                {% endfor %}
+            </div>
+            <div class="float-right">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="25" height="25"
+                viewBox="0 0 172 172"
+                style=" fill:#000000;" class="plus" id="update-workexp"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M2.65391,86c0,-46.02344 37.32266,-83.34609 83.34609,-83.34609c46.02344,0 83.34609,37.32266 83.34609,83.34609c0,46.02344 -37.32266,83.34609 -83.34609,83.34609c-46.02344,0 -83.34609,-37.32266 -83.34609,-83.34609z" fill="#e52348"></path><path d="M131.51953,72.05859h-31.74609v-31.54453c0,-1.34375 -1.075,-2.41875 -2.41875,-2.41875h-22.87734c-1.34375,0 -2.41875,1.075 -2.41875,2.41875v31.54453h-31.54453c-1.34375,0 -2.41875,1.075 -2.41875,2.41875v23.24687c0,1.34375 1.075,2.41875 2.41875,2.41875h31.54453v31.37656c0,1.34375 1.075,2.41875 2.41875,2.41875h22.87734c1.34375,0 2.41875,-1.075 2.41875,-2.41875v-31.37656h31.74609c1.34375,0 2.41875,-1.075 2.41875,-2.41875v-23.24687c0,-1.34375 -1.10859,-2.41875 -2.41875,-2.41875z" fill="#ffffff"></path></g></g></svg>
+            </div>
+        </fieldset>
+        
+        <fieldset class="mb-4 pb-4">
+            <legend>Academic experiences</legend>
+            {{acadexpset.management_form }}
+            <div id="update-acadexp_set">
+                {% for acadexp in acadexpset %}
+
+                <div class="box m-2 p-2">
+                    {{acadexp|crispy}}
+                </div>
+                
+                {% endfor %}
+            </div>
+            <div class="float-right">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="25" height="25"
+                viewBox="0 0 172 172"
+                style=" fill:#000000;" class="plus" id="update-acadexp"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M2.65391,86c0,-46.02344 37.32266,-83.34609 83.34609,-83.34609c46.02344,0 83.34609,37.32266 83.34609,83.34609c0,46.02344 -37.32266,83.34609 -83.34609,83.34609c-46.02344,0 -83.34609,-37.32266 -83.34609,-83.34609z" fill="#e52348"></path><path d="M131.51953,72.05859h-31.74609v-31.54453c0,-1.34375 -1.075,-2.41875 -2.41875,-2.41875h-22.87734c-1.34375,0 -2.41875,1.075 -2.41875,2.41875v31.54453h-31.54453c-1.34375,0 -2.41875,1.075 -2.41875,2.41875v23.24687c0,1.34375 1.075,2.41875 2.41875,2.41875h31.54453v31.37656c0,1.34375 1.075,2.41875 2.41875,2.41875h22.87734c1.34375,0 2.41875,-1.075 2.41875,-2.41875v-31.37656h31.74609c1.34375,0 2.41875,-1.075 2.41875,-2.41875v-23.24687c0,-1.34375 -1.10859,-2.41875 -2.41875,-2.41875z" fill="#ffffff"></path></g></g></svg>
+            </div>
+        </fieldset>
+        {{contact_form|crispy}}
+            
+        <button class="m-4 float-right btn btn-primary" type="submit">Update</button>
+    </fieldset>
+</form>
+<div id="empty_update-skill_form" class="box" style="display:none">
+    <div class="box m-2 p-2">
+        {{ skillset.empty_form }}  
+    </div>
+</div>
+
+<div id="empty_update-workexp_form" style="display:none">
+    <div class="box m-2 p-2">
+        {{ workexpset.empty_form }}
+    </div> 
+</div>
+
+<div id="empty_update-acadexp_form" style="display:none">
+    <div class="box m-2 p-2">
+        {{ acadexpset.empty_form }}
+    </div>
+</div>
+{% endblock content%}
+.

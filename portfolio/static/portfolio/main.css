@@ -1,0 +1,121 @@
+*{
+    box-sizing: border-box;
+    font-family:poppins;
+}
+
+.cover{
+    height:auto;
+    width:100vh;
+}
+.covered{
+    height: 120vh;
+    width: auto;
+}
+.question{
+    font-size:15px;
+}
+.access{
+    color:#e52348;
+}
+svg{
+    width:100%;
+    height:auto;
+}
+.sign{
+    color:#e5234b;
+    border:1px solid #e52348;
+    background:none;
+    border-radius:20px;
+    font-size:20px;
+    padding:6px 50px;
+
+}
+
+.register-legend{   
+    font-size:40px; 
+    letter-spacing:1px;
+    font-weight: 900;
+    font-family:poppins;
+}
+.login-legend{
+    font-size:35px;
+    letter-spacing:1px;
+    font-weight: 900;
+    font-family:poppins;
+
+}
+.form-legend{
+    font-size:52px; 
+    letter-spacing:1px;
+    line-height: 60px;
+    padding: 10px;
+    font-weight: 900;
+    font-family:poppins;
+}
+#portfolio{
+    color:#e5234b;
+}
+
+.box{
+    border:1px solid #dddad9;
+    border-radius: 10px;
+    box-shadow: 5px 5px 4px #dddad9;
+}
+
+.plus{
+    border-radius:50%;
+    box-shadow:5px 5px 4px #c9c7c6 ;
+}
+.curve{
+    height:200px;
+    width: 200px;
+    border-radius:50%;
+    border: 1px solid #dddad9;;
+}
+.center{
+    text-align: center;
+}
+
+.name{
+    text-transform: uppercase;
+    font-family: montserrat;
+}
+li{
+    color:#666666;
+}
+
+.section{
+    border-bottom:1px solid #666666;
+
+}
+
+.icon{
+    width:25px;
+    height:auto;
+}
+
+.contact{
+    display:inline;
+    color:#666666;
+    font-size: 2vh;
+    line-height:2;
+}
+#update{
+    text-align:right;
+}
+
+@media (min-width:760px){
+    .register-legend{
+        font-size:60px;
+
+    }
+    .login-legend{
+        font-size:55px;
+    }
+}
+
+@media (max-width:770px){
+    .illustrate{
+        display:none;
+    }
+}

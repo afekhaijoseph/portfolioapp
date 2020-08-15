@@ -1,0 +1,13 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+  <div class="container border covered border-light">
+      <div class="alert alert-info border border-info mt-5">
+        <p>You have been logged out</p>
+      </div>
+      <div class="text-center">
+        <small class="pl-1 font-weight-bold"><a href="{% url 'login' %}" class="text-muted">Log In again</a></small>
+      </div>
+      
+  </div>
+{% endblock content %}
