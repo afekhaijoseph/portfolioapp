@@ -43,7 +43,7 @@ def portfolio_form(request):
 
             instances = skillset.save(commit=False)
             for instance in instances:
-                instance.occupation=request.user.occupation
+                instance.user=request.user
                 instance.save()
 
             instances = workexpset.save(commit=False)
