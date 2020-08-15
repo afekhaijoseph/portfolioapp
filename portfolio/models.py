@@ -8,8 +8,6 @@ class Person(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     display_picture = models.ImageField(default='default.png', upload_to='display_pictures') 
-    #change default jpeg#
-
 
     def __str__(self):
         return f'{self.user.username} \'s info'

@@ -118,4 +118,7 @@ li{
     .illustrate{
         display:none;
     }
+    .covered{
+        height:110vh;
+    }
 }

@@ -3,17 +3,17 @@
 
 {% block content %}
 <div class="container row pt-3 covered">
-  <form action="" method="POST" class="border border-primary col-lg-6 col-md-11 col-sm-12">
+  <form action="" method="POST" class="col-lg-6 col-md-11 col-sm-12">
     {% csrf_token %}
-    <fieldset class="border border-danger col-sm-12">
-        <legend class="mb-5 border border-success">
+    <fieldset class="col-sm-12">
+        <legend class="mb-5">
           <strong class="d-block login-legend pt-4">Login <span id="portfolio">account</span></strong>
           <small class="text-muted">Need an account? <a class="access" href="{% url 'register' %}">Sign up</a> </small>
         </legend>
-        <div class="border border-success col-sm-10 mt-5 pt-5 pb-5">
+        <div class="col-sm-10 mt-5 pt-5 pb-5">
           {{form|crispy}}
         </div>
-          <div class="border border-success text-center py-4 pt-5 mb-5 pb-5">
+          <div class="text-center py-4 pt-5 mb-5 pb-5">
             <button class="sign">login</button>
           </div>
         
