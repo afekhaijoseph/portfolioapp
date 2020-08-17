@@ -2,12 +2,13 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.forms import modelformset_factory
 from .forms import PersonForm,OccupationForm,SkillsForm,WorkExpForm,AcadExpForm,ContactForm
 from .models import Person, Occupation, WorkExp, AcadExp, Contact, Skills
 
 
-def portfolio(request):
+def portfolio(request, pk):
     return render(request, 'portfolio/portfolio.html')
 
 
@@ -80,6 +81,7 @@ def portfolio_form(request):
 
 @login_required
 def portfolio_update_form(request):
+    pk=request.user.id
     SkillsFormSet = modelformset_factory(Skills, form=SkillsForm, can_delete=True) 
     WorkExpFormSet = modelformset_factory(WorkExp, form=WorkExpForm, can_delete=True)
     AcadExpFormSet = modelformset_factory(AcadExp, form=AcadExpForm, can_delete=True)
@@ -131,7 +133,7 @@ def portfolio_update_form(request):
                 instance.user=request.user
                 instance.save()
 
-        return redirect('portfolio')            
+        return redirect('portfolio', pk=pk)            
 
     else:
         person_form  = PersonForm(instance=request.user.person)
