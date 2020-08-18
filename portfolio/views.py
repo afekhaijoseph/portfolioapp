@@ -17,7 +17,7 @@ def portfolio(request, pk):
 
 @login_required
 def portfolio_form(request):
-   #user=User.objects.get(pk=request.user.id)
+    user=User.objects.get(pk=request.user)
     SkillsFormSet = modelformset_factory(Skills, form=SkillsForm) 
     WorkExpFormSet = modelformset_factory(WorkExp, form=WorkExpForm)
     AcadExpFormSet = modelformset_factory(AcadExp, form=AcadExpForm)
