@@ -9,7 +9,10 @@ from .models import Person, Occupation, WorkExp, AcadExp, Contact, Skills
 
 
 def portfolio(request, pk):
-    return render(request, 'portfolio/portfolio.html')
+    if pk:
+        user=User.objects.get(pk=pk)
+        context={'user' : request.user}
+    return render(request, 'portfolio/portfolio.html', context)
 
 
 @login_required
