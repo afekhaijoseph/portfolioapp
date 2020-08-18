@@ -17,6 +17,7 @@ def portfolio(request, pk):
 
 @login_required
 def portfolio_form(request):
+   # user=User.objects.get(pk=request.user.id)
     SkillsFormSet = modelformset_factory(Skills, form=SkillsForm) 
     WorkExpFormSet = modelformset_factory(WorkExp, form=WorkExpForm)
     AcadExpFormSet = modelformset_factory(AcadExp, form=AcadExpForm)
@@ -61,7 +62,7 @@ def portfolio_form(request):
                 instance.user=request.user
                 instance.save()
                 
-        return redirect('portfolio')   
+        return redirect('portfolio', pk=user.id)   
 
     else:
         person_form = PersonForm()
@@ -127,7 +128,6 @@ def portfolio_update_form(request):
                 instance.user=request.user
                 instance.save()
             
-        if acadexpset.is_valid():
             instances = acadexpset.save(commit=False)
             for obj in acadexpset.deleted_objects:
                 obj.delete()
@@ -136,7 +136,7 @@ def portfolio_update_form(request):
                 instance.user=request.user
                 instance.save()
 
-        return redirect('portfolio')            
+        return redirect('portfolio', pk=pk)            
 
     else:
         person_form  = PersonForm(instance=request.user.person)
