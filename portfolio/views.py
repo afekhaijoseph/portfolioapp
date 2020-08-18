@@ -62,7 +62,7 @@ def portfolio_form(request):
                 instance.user=request.user
                 instance.save()
                 
-        return redirect('portfolio', pk=user.id)   
+        return redirect('portfolio', pk=pk)   
 
     else:
         person_form = PersonForm()
