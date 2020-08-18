@@ -16,7 +16,7 @@ def portfolio(request, pk):
 
 
 @login_required
-def portfolio_form(request):
+def portfolio_form(request, pk):
     SkillsFormSet = modelformset_factory(Skills, form=SkillsForm) 
     WorkExpFormSet = modelformset_factory(WorkExp, form=WorkExpForm)
     AcadExpFormSet = modelformset_factory(AcadExp, form=AcadExpForm)
