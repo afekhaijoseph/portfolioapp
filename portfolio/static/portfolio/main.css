@@ -62,12 +62,12 @@
     border-radius:50%;
     box-shadow:5px 5px 4px #c9c7c6 ;
 }
-/* .curve{
+.curve{
     height:200px;
     width: 200px;
     border-radius:50%;
     border: 1px solid #dddad9;;
-} */
+}
 .center{
     text-align: center;
 }
