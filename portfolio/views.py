@@ -2,22 +2,22 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.forms import modelformset_factory
 from .forms import PersonForm,OccupationForm,SkillsForm,WorkExpForm,AcadExpForm,ContactForm
-from .models import Person, Occupation, WorkExp, AcadExp, Contact, Skills
+from .models import MyUser, Person, Occupation, WorkExp, AcadExp, Contact, Skills
 
 
 def portfolio(request, pk):
     if pk:
-        user=User.objects.get(pk=pk)
+        user=MyUser.objects.get(pk=pk)
         context={'users' :user}
     return render(request, 'portfolio/portfolio.html', context)
 
 
 @login_required
 def portfolio_form(request):
-    user=User.objects.get(pk=request.user.id)
+    user=MyUser.objects.get(pk=request.user.id)
     SkillsFormSet = modelformset_factory(Skills, form=SkillsForm) 
     WorkExpFormSet = modelformset_factory(WorkExp, form=WorkExpForm)
     AcadExpFormSet = modelformset_factory(AcadExp, form=AcadExpForm)

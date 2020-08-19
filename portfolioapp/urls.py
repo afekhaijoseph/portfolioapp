@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('portfolio/<int:pk>', views.portfolio, name='portfolio'),
+    path('portfolio/<str:pk>', views.portfolio, name='portfolio'),
     path('portfolioform/', views.portfolio_form, name='portfolioform'),
     path('portfolioupdateform/', views.portfolio_update_form, name='portfolioupdateform'),
     path('', include('user.urls'))
