@@ -140,7 +140,7 @@ def portfolio_update_form(request):
 
     else:
         person_form  = PersonForm(instance=request.user.person)
-        occupation_form = OccupationForm(instance=request.user)
+        occupation_form = OccupationForm(instance=request.user.occupation)
         skillset = SkillsFormSet(prefix='update-skill', queryset=Skills.objects.filter(user=request.user))
         workexpset = WorkExpFormSet(prefix='update-workexp', queryset=WorkExp.objects.filter(user=request.user))
         acadexpset = AcadExpFormSet(prefix='update-acadexp', queryset=AcadExp.objects.filter(user=request.user))

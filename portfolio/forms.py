@@ -44,10 +44,13 @@ class WorkExpForm(forms.ModelForm):
 class AcadExpForm(forms.ModelForm):
     class Meta:
         model = AcadExp
-        fields = ['education']
+        fields = ['education', 'started', 'left', 'qualification']
 
         widgets = {
-            'education' : forms.TextInput(attrs={'class' : 'form-control'})
+            'education' : forms.TextInput(attrs={'class' : 'form-control'}),
+            'started' : forms.Select(attrs={'class' : 'form-control col-4'}),
+            'left' : forms.Select(attrs={'class' : 'form-control col-4'}),
+            'qualification' : forms.TextInput(attrs={'class' : 'form-control'}),
         }
 
 class ContactForm(forms.ModelForm):

@@ -44,8 +44,8 @@ class WorkExp(models.Model):
     YEAR_CHOICES = []
     for r in range(1980, (datetime.now().year+1)):
         YEAR_CHOICES.append((r,r))
-    started = models.IntegerField(_('year'), choices=YEAR_CHOICES, default=datetime.now().year)
-    left = models.IntegerField(_('year'), choices=YEAR_CHOICES, default=datetime.now().year)
+    started = models.IntegerField(_('from'), choices=YEAR_CHOICES, default=datetime.now().year)
+    left = models.IntegerField(_('to'), choices=YEAR_CHOICES, default=datetime.now().year)
     position = models.CharField(max_length = 200, blank=True)
 
 
@@ -55,7 +55,12 @@ class WorkExp(models.Model):
 class AcadExp(models.Model):  
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
     education = models.CharField(max_length = 30, blank=True)
-
+    YEAR_CHOICES = []
+    for r in range(1980, (datetime.now().year+1)):
+        YEAR_CHOICES.append((r,r))
+    started = models.IntegerField(_('from'), choices=YEAR_CHOICES, default=datetime.now().year)
+    left = models.IntegerField(_('to'), choices=YEAR_CHOICES, default=datetime.now().year)
+    qualification = models.CharField(max_length = 200, blank=True)
     def __str__(self):
         return f'{self.user.username} \'s academic experiences'
 
