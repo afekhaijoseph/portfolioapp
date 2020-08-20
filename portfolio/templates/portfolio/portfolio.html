@@ -31,7 +31,7 @@
                 <ul>
                 {% for workexp in users.workexp_set.all %}
                 
-                    <li class="pt-2 pb-2 pr-1">Worked at {{workexp.company}} {{workexp.started}} - {{workexp.left}} as a {{workexp.position}}</li>
+                    <li class="pt-2 pb-2 pr-1">Worked at {{workexp.company}} {{workexp.started}} - {{workexp.left}} as a {{workexp.position}}.</li>
         
                  {%endfor%}
                 </ul>
@@ -42,7 +42,7 @@
                 <ul>
                    {%for acadexp in users.acadexp_set.all%}
               
-                   <li class="pt-1 pb-1">Attended {{acadexp.education}} from {{acadexp.started}} to {{acadexp.left}} for a {{acadexp.qualification}}</li>
+                   <li class="pt-1 pb-1">Attended {{acadexp.education}} from {{acadexp.started}} to {{acadexp.left}} for a {{acadexp.qualification}} degree.</li>
                   
                    {%endfor%}
                 </ul>
