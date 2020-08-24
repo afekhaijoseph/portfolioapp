@@ -134,6 +134,9 @@ li{
     padding:10px 50px;
     border-radius:20px;
 }
+.link{
+    color:#fff;
+}
 @media (min-width:760px){
     .register-legend{
         font-size:60px;
