@@ -7,7 +7,8 @@ from django.forms import modelformset_factory
 from .forms import PersonForm,OccupationForm,SkillsForm,WorkExpForm,AcadExpForm,ContactForm
 from .models import MyUser, Person, Occupation, WorkExp, AcadExp, Contact, Skills
 
-
+def landing_page(request):
+    return render(request, 'portfolio/landing-page.html')
 def portfolio(request, pk):
     if pk:
         user=MyUser.objects.get(pk=pk)

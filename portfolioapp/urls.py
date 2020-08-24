@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.landing_page, name='landing-page'),
     path('portfolio/<str:pk>', views.portfolio, name='portfolio'),
     path('portfolioform/', views.portfolio_form, name='portfolioform'),
     path('portfolioupdateform/', views.portfolio_update_form, name='portfolioupdateform'),

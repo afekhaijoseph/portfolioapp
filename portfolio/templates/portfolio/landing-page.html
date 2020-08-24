@@ -1,0 +1,42 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+<div class="bg-light">
+    <img src='{% static "logo.png" %}' class="logo p2" alt="logo">
+    <h4 id="logomark" class="font-weight-bold">Portfolio <span id="portfolio">Creator</span> </h4>
+    <div class="float-right mt-2 header-button">
+        <button class="landing-signin"><a href="{%url 'login'%}"></a> Sign in</button>
+    </div>
+</div>
+    <div class="px-3 text-center" id="landing-page">
+        <div>
+            <p class="landing mx-3 mt-5">Create a professional portfolio</p>
+            <p class="landing mx-2"> for yourself on the web instantly.</p>
+            <p>your client knows all they need to know about you by sending them a link.</p>
+            <div class="mt-5 pt-5">
+                <button class="animated bounceIn slower" type="button"><a class="start p-2" href="{% url 'register' %}">Get Started</a></button>
+            </div>   
+        </div>
+    </div>
+    
+</div>
+<style>
+    #landing-page{
+    background-color: #000;
+    background-image: url('{% static "the-background.png" %}');
+    background-repeat:no-repeat;
+    background-size:100%;
+    color:#fff;
+    height:90vh;
+    }
+    @media (max-width:770px){
+    #landing-page{
+        background-size:100%;
+        color:#fff;
+        height:95vh;
+        background-repeat:repeat;
+    }
+}
+</style>
+
+{% endblock content %}
