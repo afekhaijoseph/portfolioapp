@@ -9,7 +9,7 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'account created for {username}, You can now login')
-            return redirect('login')
+            return redirect('portfolioform')
     else:
         form = UserRegisterForm()
     return render(request, 'user/register.html', {'form':form})

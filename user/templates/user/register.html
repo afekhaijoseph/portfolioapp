@@ -2,15 +2,15 @@
 {% load crispy_forms_tags %}
 {% load static%}
 {% block content %}
-    <div class="row container-fluid covered m-0 bg-dark register">
-        <form action="" method="POST" class="col-7 bg-light">
+    <div class="row container-fluid covered m-0 bg-dark  register">
+        <form action="" method="POST" class="col-lg-7 col-sm-12 bg-light">
             {% csrf_token %}
             <div>
-                <legend class="py-2 ml-2 pl-2">
+                <legend class="py-1 ml-2 pl-2">
                     <strong class= "register-legend" >Create <span id="portfolio">account</span></strong>
                     <small class="d-block text-muted question">Already have an account? <a id="portfolio" href="{% url 'login' %}">Sign In</a> </small>
                </legend>
-                   <fieldset class="register-form ml-2">
+                   <fieldset class="register-form ">
                                {{form|crispy}}
                        <div class="text-center py-4">
                            <button class="sign">Sign up</button>
@@ -27,13 +27,28 @@
         height:100vh;
         display:block;
         text-align: center;
-        padding-top:20px;
+        padding-top:25px;
     }
 
     form{
         margin:0 auto;
         padding-top:20px;
   }
+  @media (max-width:720px){
+  .register{
+    background-image:none;
+    background-repeat:none;
+    background-size:none;
+    height:none;
+    padding:0;
+    text-align:justify;
+    }
+  form{
+    margin:0;
+    padding:0;
+    padding-top:10px;
+  }
+}
     </style>
 
 {% endblock content %}

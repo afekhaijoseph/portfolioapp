@@ -1,6 +1,6 @@
 {% extends "portfolio/base.html" %}
 {% block content %}
-    <div class="portfoliopage container cover bg-light text-dark">
+    <div class="portfoliopage container cover pb-3 bg-light text-dark">
         <h2 class="text-center form-legend" >My <span id="portfolio">portfolio</span></h2>
         <div>
             <div class="center">
@@ -68,13 +68,6 @@
                 </div>
     
             </div>
-            {% if user.is_authenticated %}
-                <div class="mt-4"id="update">
-                    <button class="btn btn-secondary mr-2 py-1 mb-4"> <a class="text-light"  href="{% url 'portfolioupdateform' %}">Edit</a></button>
-                    <button class="btn btn-secondary py-1 mb-4"> <a class="text-light"  href="{% url 'logout' %}">Log out</a></button>
-                </div>
-                {% endif %}
-            
         </div>
     </div>
 {% endblock content %}
